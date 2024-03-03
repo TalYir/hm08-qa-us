@@ -79,10 +79,6 @@ describe('Create an order', () => {
         const messageForDriverFeild = await $(page.messageForDriverFeild);
         await messageForDriverFeild.waitForDisplayed();
         await messageForDriverFeild.setValue('Hello!');
-        await browser.waitUntil(async () => {
-            const value = await messageForDriverFeild.getValue();
-            return value === 'Hello!';
-        }, { timeout: 5000, timeoutMsg: 'Expected value not set within timeout' });
         const message = await messageForDriverFeild.getValue();
         await expect(message).toBe('Hello!');
 });
